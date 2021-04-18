@@ -36,8 +36,8 @@ ball = GameSprite('tenis_ball.png', 200, 200, 50, 50, 4)
 
 font.init()
 font = font.Font(None, 35)
-lose1 = font.render('PLAYER 1 LOSE!', True, (180, 0, 0))
-lose2 = font.render('PLAYER 2 LOSE!', True, (180, 0, 0))
+lose1 = font.render('PLAYER 1 LOSE! HA-HA LOSER!:P', True, (180, 0, 0))
+lose2 = font.render('PLAYER 2 LOSE! HA-HA LOSER!:P', True, (180, 0, 0))
 
 clock = time.Clock()
 FPS = 60
@@ -67,12 +67,12 @@ while game:
 
         if ball.rect.x < 0:
             finish = True
-            window.blit(lose1, (200, 200))
+            window.blit(lose1, (100, 200))
             game_over = True
 
         if ball.rect.x > win_width:
             finish = True
-            window.blit(lose2, (200, 200))
+            window.blit(lose2, (100, 200))
             game_over = True
 
         racket1.reset()
