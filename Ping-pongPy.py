@@ -1,9 +1,9 @@
 from pygame import*
-back = (200, 255, 255)
+background = (200, 255, 255)
 win_width = 600
 win_height = 500
 window = display.set_mode((win_width, win_height))
-window.fill(back)
+window.fill(background)
 
 class GameSprite(sprite.Sprite):
     def __init__(self, player_image, player_x, player_y, size_x, size_y, player_speed):
@@ -30,21 +30,24 @@ class Player(GameSprite):
         if keys[K_s] and self.rect.y < win_height - 80:
             self.rect.y += self.speed  
 
-racket1 = Player("racket.png", 550, 250, 100, 100, 10)
-racket2 = Player("racket.png", 50, 250, 100, 100, 10)
+racket1 = Player("racket.png", 520, 210, 40, 80, 10)
+racket2 = Player("racket.png", 20, 210, 40, 80, 10)
 
 clock = time.Clock()
 FPS = 60
 game = True
+finish = False
 
 while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
     if finish != True:
-        window.blit(background, (0, 0))
+        window.fill(background)
         racket1.update_r()
         racket2.update_l()
 
+        racket1.reset()
+        racket2.reset()
     display.update()
     clock.tick(FPS)
